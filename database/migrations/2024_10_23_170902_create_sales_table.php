@@ -11,9 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('product_rates', function (Blueprint $table) {
+        Schema::create('sales', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->foreignId('product_param_id')->constrained();
+            $table->float('percent')->nullable();
+            $table->date('from_date');
+            $table->date('till_date');
         });
     }
 
@@ -22,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('product_rates');
+        Schema::dropIfExists('sales');
     }
 };

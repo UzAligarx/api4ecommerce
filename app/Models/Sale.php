@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Sale extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'product_param_id',
+        'persent',
+        'from_date',
+        'till_date'
+    ];
 }
